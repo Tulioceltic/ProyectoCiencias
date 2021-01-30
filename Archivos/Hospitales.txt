@@ -8,3 +8,4 @@ Centro Medico Olaya,Nasly Tatiana,Rafael Uribe,20,28,5,22,10,10.
 Hospital Engativa,Claudia Jimena,Engativa,78,93,45,50,15,20.
 Hospital Fontibon,Claudia Rosero,Fontibon,26,40,100,120,14,22.
 Centro Medico Ricaurte,Rocio Leal,Puente Aranda,15,20,34,38,10,11.
+Centro Medicodasjdsa,Rocio Leal,Puente Aranda,15,20,34,38,10,11.

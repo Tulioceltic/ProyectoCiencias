@@ -2,18 +2,22 @@
 #define Consultas_h
 #include "Listas.h"
 #include "Hospitales.h"
+#include "PersonalSalud.h"
 #include <iostream>
+using namespace std;
 class Consultas{
 	
 	Hospital auxH;
+	Personal auxPS;
 	public:
 		Consultas(){
 		
 		};
 		void HospitalesCalleCarreras(Lista <Hospital> ListaAuxH,int calle_inicial,int calle_final,int carrera_inicial,int carrera_final);
-		
+		void PersonalHorarioLocalidad(Lista <Personal> ListaAuxPS,string Localidad, int hora_inicial, int hora_final);
 	
 };
+
 void Consultas::HospitalesCalleCarreras(Lista <Hospital> ListaAuxH,int calle_inicial,int calle_final,int carrera_inicial,int carrera_final){
 	Lista <Hospital> calle_carrera;
 	int cont=1;
@@ -37,4 +41,13 @@ void Consultas::HospitalesCalleCarreras(Lista <Hospital> ListaAuxH,int calle_ini
 	}
     
 }
+/*void Consultas::PersonalHorarioLocalidad(Lista <Personal> ListaAuxPS,string Localidad, int hora_inicial, int hora_final){
+	for(int j=1;j<=ListaAuxPS.tamano_lista();j++){
+    auxPS=ListaAuxPS.obtenerDato(j);
+    if(auxPS.){
+     	calle_carrera.insertar_pos(auxH,cont);
+     	cont++;
+     }
+		 
+}*/
 #endif /*Consultas_h */ 

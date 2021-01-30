@@ -21,6 +21,7 @@ void Menu::MenuPrincipal(){
 		cout << "\1. Consultar hospitales y centros medicos segun Calles y Carreras." << endl;
        // controlar.Controlador();
         controlar.ConsultarHospitales();
-   
+   		controlar.ConsultarPersonalSalud();
+   		
 }
 #endif /*Menu */ 

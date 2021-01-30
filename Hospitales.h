@@ -16,6 +16,7 @@ struct Hospital{
 	int carrera_final;
 	int Numero_Medicos; 
 	int Numero_Enfermeros;
+	
 };
 
 class Hospitales{
