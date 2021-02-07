@@ -22,6 +22,7 @@ void Menu::MenuPrincipal(){
        // controlar.Controlador();
         controlar.ConsultarHospitales();
    		controlar.ConsultarPersonalSalud();
-   		
+   		//controlar.AdicionarHospital("hcd","jsa","sady",32,23,15,13,21,20);
+   		controlar.ConsultarPacientes();
 }
 #endif /*Menu */ 

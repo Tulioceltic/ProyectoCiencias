@@ -1,11 +1,15 @@
-Hospital San Ignacio,Dario Valencia,Chapinero,45,60,3,10,15,20.
-Hospital San Blas,Guillermo Diaz,San Cristobal,16,30,1,9,10,20.
-Centro Medico San Luis,Flor Deisy,Chapinero,30,38,1,7,10,12.
-Centro Medico Zahnartz,Claudia Castillo,Venecia,50,58,39,45,10,10.
-Hospital San Antonio,Elver Fabian,Venecia,58,73,45,55,20,20.
-Hospital San Rafael,Juan Cesar,Rafael Uribe,22,35,14,19,13,15.
-Centro Medico Olaya,Nasly Tatiana,Rafael Uribe,20,28,5,22,10,10.
-Hospital Engativa,Claudia Jimena,Engativa,78,93,45,50,15,20.
-Hospital Fontibon,Claudia Rosero,Fontibon,26,40,100,120,14,22.
-Centro Medico Ricaurte,Rocio Leal,Puente Aranda,15,20,34,38,10,11.
-Centro Medicodasjdsa,Rocio Leal,Puente Aranda,15,20,34,38,10,11.
+Hospital San Ignacio,Dario Valencia,Chapinero,45,60,3,10,0,0.
+Hospital San Blas,Guillermo Diaz,San Cristobal,16,30,1,9,0,0.
+Centro Medico San Luis,Flor Deisy,Chapinero,30,38,1,7,0,0.
+Centro Medico Zahnartz,Claudia Castillo,Venecia,50,58,39,45,0,0.
+Hospital San Antonio,Elver Fabian,Venecia,58,73,45,55,0,0.
+Hospital San Rafael,Juan Cesar,Rafael Uribe,22,35,14,19,0,0.
+Centro Medico Olaya,Nasly Tatiana,Rafael Uribe,20,28,5,22,0,0.
+Hospital Engativa,Claudia Jimena,Engativa,78,93,45,50,0,0.
+Hospital Fontibon,Claudia Rosero,Fontibon,26,40,100,120,0,0.
+Centro Medico Ricaurte,Rocio Leal,Puente Aranda,15,20,34,38,0,0.
+Centro Medicodasjdsa,Rocio Leal,Puente Aranda,15,20,34,38,0,0.
+hcd,jsa,sady,32,23,15,13,0,0.
+hcd,jsa,sady,32,23,15,13,0,0.
+hcd,jsa,sady,32,23,15,13,0,0.
+hcd,jsa,sady,32,23,15,13,0,0.

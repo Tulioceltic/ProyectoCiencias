@@ -5,6 +5,7 @@
 using namespace std;
 struct Personal{
 	string Hospital;
+	string Tipo;
 	string Seccion;
 	string Nombre;
 	string Apellido;

@@ -1,6 +1,7 @@
 #ifndef	Hospitales_h
 #define Hospitales_h
 #include "Listas.h"
+#include "PersonalSalud.h"
 #include <cstdlib>
 #include <iostream>
 using namespace std;
@@ -16,7 +17,7 @@ struct Hospital{
 	int carrera_final;
 	int Numero_Medicos; 
 	int Numero_Enfermeros;
-	
+	Lista<Personal> Personal_Hospital;
 };
 
 class Hospitales{
@@ -28,26 +29,11 @@ class Hospitales{
 		};
 		
 		void LlenarHospitales();
-    //	string getNombre();
-    //	string getGerente();
-    //	string getLocalidad();
+
+
 
 };
-/*void Hospitales::LlenarHospitales(){
 
-     for(int j=1;j<=10;j++){
-     	auxHospitales=Listahospitales.obtenerDato(j);
-     	cout<<j<<": ";
-     	cout<<auxHospitales.Nombre<<" : "<<auxHospitales.calle_inicial<<": "<<auxHospitales.Gerente<<": "<<auxHospitales.carrera_final<<": "<<auxHospitales.calle_final<<": "<<auxHospitales.Localidad<<endl;
-     
-     
-   	}
-   	cout<<Listahospitales.lista_vacia()<<endl;
-}*/
-
-
-
-	
 
 #endif /*Hospitales_h */ 
 
