@@ -33,10 +33,10 @@ class Controlador{
 		};
 	void AdicionarHospital(string ,string ,string ,int , int ,int , int ,int , int);
 	void AdicionarPersonal(string,string, string, string, string, string ,long int,string,int ,int,int,int,int,string ,string,string ,string ,string ,int,int,int);
-	void AdicionarPaciente(string ,string ,long int ,string ,int ,int ,int ,string ,string ,string ,string ,string );
+	void AdicionarPaciente(string ,string ,long int ,string ,int ,int ,int ,string ,string ,string ,string ,string, int, string );
 	void Hospital_Personal();
 	void RecuperarPacientes();
-	Paciente Personal_Paciente(Paciente);
+	Paciente Personal_Paciente(Paciente,int,string);
 	void ConsultarHospitales();
 	void ConsultarPersonalSalud();
 	void ConsultarPacientes();
@@ -122,7 +122,7 @@ void Controlador::AdicionarPersonal(string Hospital,string Tipo,string Seccion,s
 	auxPS.num_pacientes=num_pacientes;
 	ListaPS.insertar_final(auxPS);
 }
-void Controlador::AdicionarPaciente(string Nombre,string Apellido,long int NumeroIdentificacion,string sexo,int dia,int mes,int anio,string Enfermedades,string Localidad,string Estado,string NivelGravedad,string Medicamentos){
+void Controlador::AdicionarPaciente(string Nombre,string Apellido,long int NumeroIdentificacion,string sexo,int dia,int mes,int anio,string Enfermedades,string Localidad,string Estado,string NivelGravedad,string Medicamentos, int hora, string Hospital){
 	auxPa.Nombre=Nombre;
 	auxPa.Apellido=Apellido;
 	auxPa.NumeroIdentificacion=NumeroIdentificacion;
@@ -135,7 +135,7 @@ void Controlador::AdicionarPaciente(string Nombre,string Apellido,long int Numer
 	auxPa.Estado=Estado;
 	auxPa.NivelGravedad=NivelGravedad;
 	auxPa.Medicamentos=Medicamentos;
-	auxPa=Personal_Paciente(auxPa);
+	auxPa=Personal_Paciente(auxPa,hora,Hospital);
 	for(int k=1;k<=auxPa.idPersonal.tamano_lista();k++){
 		cout<<auxPa.idPersonal.obtenerDato(k)<<endl;
 	}
@@ -144,6 +144,7 @@ void Controlador::AdicionarPaciente(string Nombre,string Apellido,long int Numer
 		ListaPa.insertar_final(auxPa);
 	}else{
 		cout<<"Lo siento no tenemos personal sufieciente para atenderlo. Debe esperar a que se desocupe personal"<<endl;
+		
 	}
 	Escribir.ModificarArchivoPaciente(ListaPa);
 
@@ -175,14 +176,14 @@ void Controlador::Hospital_Personal(){
 	}
 cout<<endl;
 }
-Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
+Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente,int hora, string Hospital){
 	int num_medicos=0;
 	int num_enfermeros=0;
 	int cont=1;
 	for(int j=1;j<=ListaPS.tamano_lista();j++){
 		auxPS=ListaPS.obtenerDato(j);
 		if(nuevo_paciente.NivelGravedad=="Leve"){
-				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1 ){
+				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital ){
 					num_medicos++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -190,7 +191,7 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					cont++;
 					ListaPS.cambiar(j,auxPS);
 				}
-				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<1){
+				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<1 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital){
 					num_enfermeros++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -202,7 +203,7 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					break;
 		}
 		if(nuevo_paciente.NivelGravedad=="Moderado"){
-				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1){
+				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital){
 					num_medicos++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -210,7 +211,7 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					cont++;
 					ListaPS.cambiar(j,auxPS);
 				}
-				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<2){
+				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<2 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital){
 					num_enfermeros++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -222,7 +223,7 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					break;
 		}
 		if(nuevo_paciente.NivelGravedad=="Severo"){
-				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1){
+				if(auxPS.Tipo=="Medico" && auxPS.num_pacientes<10 && num_medicos<1 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital){
 					num_medicos++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -230,7 +231,7 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					cont++;
 					ListaPS.cambiar(j,auxPS);
 				}
-				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<3){
+				if(auxPS.Tipo=="Enfermero" && auxPS.num_pacientes<10 && num_enfermeros<3 && (hora>=auxPS.hora_inicial && hora<=auxPS.hora_final) && Hospital==auxPS.Hospital){
 					num_enfermeros++;
 					auxPS.num_pacientes++;
 					auxPS.pacientesPS.insertar_final(nuevo_paciente);
@@ -242,7 +243,8 @@ Paciente Controlador::Personal_Paciente(Paciente nuevo_paciente){
 					break;
 		}
 		
-	}		
+	}
+		
 	return nuevo_paciente;
 }
 void Controlador::RecuperarPacientes(){

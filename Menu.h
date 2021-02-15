@@ -25,10 +25,11 @@ void Menu::MenuPrincipal(){
       //  controlar.ConsultarHospitales();
    		
    		//controlar.AdicionarHospital("hcd","jsa","sady",32,23,15,13,21,20);
-   	//	controlar.AdicionarPaciente("Guillermo","Velez",1234,"M",21,10,2001,"Ninguna","Olaya","Asintomatico","Leve","acetaminofen");
-   	//	controlar.AdicionarPaciente("Juan","Bautista",12345,"M",21,10,2001,"Ninguna","Olaya","Asintomatico","Severo","acetaminofen");
-	//	controlar.AdicionarPaciente("Daniel","Vargas",467342,"M",15,11,2004,"Ninguna","Restrepo","Asintomatico","Moderado","acetaminofen");
-	//	controlar.AdicionarPaciente("Sofia","Munoz",432112,"F",15,11,1999,"Dermatitis","Restrepo","Asintomatico","Leve","Gengibre");
+   	//	controlar.AdicionarPaciente("Guillermo","Velez",1234,"M",21,10,2001,"Ninguna","Olaya","Asintomatico","Leve","acetaminofen",10,"Hospital Fontibon");
+   	//	controlar.AdicionarPaciente("Juan","Bautista",12345,"M",21,10,2001,"Ninguna","Olaya","Asintomatico","Moderado","acetaminofen",9,"Hospital San Blas");
+	//	controlar.AdicionarPaciente("Daniel","Vargas",467342,"M",15,11,2004,"Ninguna","Restrepo","Asintomatico","Moderado","acetaminofen",8, "Hospital San Blas");
+	//	controlar.AdicionarPaciente("Sofia","Munoz",432112,"F",15,11,1999,"Dermatitis","Restrepo","Asintomatico","Leve","Gengibre",7, "Hospital San Blas");
+	//	controlar.AdicionarPaciente("Dana","Diaz",125611,"F",15,12,1993,"Dermatitis","Quiroga","Asintomatico","Leve","Gengibre",8, "Hospital Fontibon");
    		controlar.ConsultarPacientes();
    		controlar.ConsultarPersonalSalud();
 }
