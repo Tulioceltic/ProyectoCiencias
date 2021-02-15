@@ -6,14 +6,17 @@
 #include "Pacientes.h"
 #include <iostream>
 #include <fstream>
+#include <string> 
+#include <sstream>  
 using namespace std;
 class LeerArchivos{
 	
 	//Lista<Hospitales> ListaAuxH;
 //	PersonalSalud personalmedico;
-	Hospital auxH;
-	Personal auxPS;
-	Paciente auxPa;
+	private:
+		
+		
+	
 	public:
 		LeerArchivos(){
 		
@@ -23,6 +26,8 @@ class LeerArchivos{
 	Lista <Paciente> LLenarPacientes(Lista <Paciente> ListaPa);
 };
 Lista <Hospital> LeerArchivos::LLenarHospitales(Lista <Hospital> Listah){
+
+	
  	string linea;
 // 	string lineaH;
 	ifstream file;
@@ -34,7 +39,7 @@ Lista <Hospital> LeerArchivos::LLenarHospitales(Lista <Hospital> Listah){
 	file.open("Archivos//Hospitales.txt",ios::in);
 	
     	while(!file.eof()){	    
- 
+ 			Hospital auxH;
 			getline(file,linea,',');
     	    //cout<<linea<<endl;
 			auxH.Nombre=linea;
@@ -63,13 +68,6 @@ Lista <Hospital> LeerArchivos::LLenarHospitales(Lista <Hospital> Listah){
 			    	    //cout<<linea<<endl;
 			auxH.carrera_final=atoi(linea.c_str());
 			
-		/*	while(!fileH.eof()){
-				getline(fileH,lineaH,',');
-				if(lineaH==auxH.Nombre){
-					auxH.Personal_Hospital.insertar_final()
-				}
-			}*/
-			
 			getline(file,linea,',');
 			    	    //cout<<linea<<endl;
 			auxH.Numero_Medicos=atoi(linea.c_str());
@@ -91,7 +89,7 @@ Lista <Personal> LeerArchivos::LLenarPersonalSalud(Lista <Personal> ListaPS){
 	file.open("Archivos//PersonalSalud.txt",ios::in);
 	
     	while(!file.eof()){	    
- 
+ 			Personal auxPS;
 			getline(file,linea,',');
     	    //cout<<linea<<endl;
 			auxPS.Hospital=linea;
@@ -178,6 +176,7 @@ Lista <Personal> LeerArchivos::LLenarPersonalSalud(Lista <Personal> ListaPS){
 			auxPS.num_pacientes=atoi(linea.c_str());
 			getline(file,linea);
 			ListaPS.insertar_final(auxPS);
+			
 		}
     file.close();
     return ListaPS;
@@ -186,8 +185,12 @@ Lista <Personal> LeerArchivos::LLenarPersonalSalud(Lista <Personal> ListaPS){
 Lista <Paciente> LeerArchivos::LLenarPacientes(Lista <Paciente> ListaPa){
 	string linea;
 	ifstream file;
+	char *char_part ;
+	char *char_part2 ;
+	int id;
 	file.open("Archivos//Pacientes.txt",ios::in);
 		while(!file.eof()){	 
+			Paciente auxPa;
 			getline(file,linea,',');
     	    //cout<<linea<<endl;
 			auxPa.Nombre=linea;
@@ -227,14 +230,44 @@ Lista <Paciente> LeerArchivos::LLenarPacientes(Lista <Paciente> ListaPa){
            	getline(file,linea,',');
            	auxPa.NivelGravedad=linea;
            	
-           	getline(file,linea,'.');
+           	getline(file,linea,',');
            	auxPa.Medicamentos=linea;
-           	
+           	if(auxPa.NivelGravedad=="Leve"){
+           		getline(file,linea,',');
+           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+           		getline(file,linea,'.');
+           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+			}
+			if(auxPa.NivelGravedad=="Moderado"){
+				getline(file,linea,',');
+				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				getline(file,linea,',');
+				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+           		getline(file,linea,'.');
+           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+			}
+			if(auxPa.NivelGravedad=="Severo"){
+				getline(file,linea,',');
+				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				getline(file,linea,',');
+				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				getline(file,linea,',');
+				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+           		getline(file,linea,'.');
+           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+			}
            	getline(file,linea);
 			ListaPa.insertar_final(auxPa);
 		}
+		
 	file.close();
+			
 	return ListaPa;
 	
 }
+	/*for(int k=0;k<linea.size();k++){
+           		idPersonal[k]=linea[k];
+           		
+			}*/
+
 #endif /*LeerArchivos_h */ 

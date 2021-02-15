@@ -2,6 +2,7 @@
 #define PersonalSalud_h
 #include <iostream>
 #include <cstdlib>
+#include "Pacientes.h"
 using namespace std;
 struct Personal{
 	string Hospital;
@@ -25,6 +26,8 @@ struct Personal{
 	int hora_inicial;
 	int hora_final;
 	int num_pacientes;
+	Lista <Paciente> pacientesPS;
+	
 	
 };
 class PersonalSalud{

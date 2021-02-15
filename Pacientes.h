@@ -1,8 +1,8 @@
 #ifndef	Pacientes_h
 #define Pacientes_h
-#include "PersonalSalud.h"
 #include <iostream>
 #include <cstdlib>
+#include "Listas.h"
 struct Paciente{
 	string Nombre;
 	string Apellido;
@@ -16,7 +16,7 @@ struct Paciente{
 	string Estado;
 	string NivelGravedad;
 	string Medicamentos;
-	Lista <Personal> PersonalAsignado;
+	Lista <long int> idPersonal;
 	
 	
 };

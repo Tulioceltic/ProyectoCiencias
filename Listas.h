@@ -28,6 +28,7 @@ class Lista{ Nodo <T> *cab;
 	 void insertar_final(T infoNueva);
 	 void insertar_pos(T infoNueva, int pos);
 	 void insertar_inicio(T infoNueva);
+	 bool cambiar(int pos ,T infoNueva);
 	  };
  
  
@@ -153,4 +154,19 @@ template<class T>
 int Lista<T>::tamano_lista(){
 	return tam;
 }
+
+template <class T>
+bool Lista<T>::cambiar(int pos, T infoNueva)
+{ Nodo <T> *aux=cab;
+  int p = 1;
+  if (pos<=tam)
+   { while(p<pos && aux != NULL)
+   		{aux = aux->sig;
+         p++;
+    	}
+     aux->info = infoNueva; 
+     return true;
+	}
+  return false;	
+}	
 #endif /* Listas_h */ 

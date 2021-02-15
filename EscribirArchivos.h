@@ -55,7 +55,13 @@ void EscribirArchivos::ModificarArchivoPaciente(Lista <Paciente> NuevaListaP){
 	file.open("Archivos//Pacientes.txt",ios::out);
 	for(int i=1;i<=NuevaListaP.tamano_lista();i++){
 		auxP=NuevaListaP.obtenerDato(i);
-		file<<auxP.Nombre<<','<<auxP.Apellido<<','<<auxP.NumeroIdentificacion<<','<<auxP.sexo<<','<<auxP.dia<<','<<auxP.mes<<','<<auxP.anio<<','<<auxP.Enfermedades<<','<<auxP.Localidad<<','<<auxP.Estado<<','<<auxP.NivelGravedad<<','<<auxP.Medicamentos<<'.';
+		file<<auxP.Nombre<<','<<auxP.Apellido<<','<<auxP.NumeroIdentificacion<<','<<auxP.sexo<<','<<auxP.dia<<','<<auxP.mes<<','<<auxP.anio<<','<<auxP.Enfermedades<<','<<auxP.Localidad<<','<<auxP.Estado<<','<<auxP.NivelGravedad<<','<<auxP.Medicamentos;
+		for(int j=1;j<=auxP.idPersonal.tamano_lista(); j++){
+			file<<','<<auxP.idPersonal.obtenerDato(j);
+			if(j==auxP.idPersonal.tamano_lista())
+				file<<'.';
+			
+		}
 		if(i!=NuevaListaP.tamano_lista())
 			file<<endl;
 	}
