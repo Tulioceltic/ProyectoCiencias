@@ -1,2 +1,3 @@
 Guillermo,Velez,1234,M,21,10,2001,Ninguna,Olaya,Asintomatico,Leve,acetaminofen,2451213,72832.
 Juan,Bautista,12345,M,21,10,2001,Ninguna,Olaya,Asintomatico,Moderado,acetaminofen,319218,245612,2451212.
+Luisa,Espitia,621721,F,12,12,1998,Ninguna,Suba,Asintomatico,Leve,Gengibre,2451213,72832.

@@ -1,43 +1,42 @@
 #ifndef	Consultas_h
 #define Consultas_h
 #include "Listas.h"
+#include "Controlador.h"
 #include "Hospitales.h"
 #include "PersonalSalud.h"
+#include "Pacientes.h"
 #include <iostream>
 using namespace std;
 class Consultas{
-	
-	Hospital auxH;
-	Personal auxPS;
+	private:
+		Hospital auxH;
+		Personal auxPS;
+		Paciente auxPa;
+		Lista <Hospital> Listah;
+	    Lista <Personal> ListaPS;
+	    Lista <Paciente> ListaPa;
 	public:
-		Consultas(){
-		
+		Consultas(Controlador RecuperarListas){
+		Listah= RecuperarListas.getListaHospitales();
+		ListaPS= RecuperarListas.getListaPersonal();
+		ListaPa= RecuperarListas.getListaPacientes();
 		};
-		void HospitalesCalleCarreras(Lista <Hospital> ListaAuxH,int calle_inicial,int calle_final,int carrera_inicial,int carrera_final);
-		void PersonalHorarioLocalidad(Lista <Personal> ListaAuxPS,string Localidad, int hora_inicial, int hora_final);
+		void HospitalesCalleCarreras(int calle_inicial,int calle_final,int carrera_inicial,int carrera_final);
+		void PersonalHorarioLocalidad(string Localidad, int hora_inicial, int hora_final);
 	
 };
 
-void Consultas::HospitalesCalleCarreras(Lista <Hospital> ListaAuxH,int calle_inicial,int calle_final,int carrera_inicial,int carrera_final){
-	Lista <Hospital> calle_carrera;
-	int cont=1;
-	for(int j=1;j<=ListaAuxH.tamano_lista();j++){
-     	auxH=ListaAuxH.obtenerDato(j);
+void Consultas::HospitalesCalleCarreras(int calle_inicial,int calle_final,int carrera_inicial,int carrera_final){
+	int cont=0;
+	for(int j=1;j<=Listah.tamano_lista();j++){
+     	auxH=Listah.obtenerDato(j);
      	if(calle_inicial>=auxH.calle_inicial && calle_final<=auxH.calle_final && carrera_inicial>=auxH.carrera_inicial && carrera_final<=auxH.carrera_final){
-     		calle_carrera.insertar_pos(auxH,cont);
+     		cout<<auxH.Nombre<<endl;
      		cont++;
 		 }
    	}
-   	if(calle_carrera.lista_vacia()){
+   	if(cont==0){
    		cout<<"No hay Hospitales que cubran la direccion que ha ingresado"<<endl;
-	}else{
-		for(int j=1;j<=calle_carrera.tamano_lista();j++){
-	     	auxH=calle_carrera.obtenerDato(j);
-	     	cout<<j<<": ";
-	     	cout<<auxH.Nombre<<endl;
-	     
-	     
-	   	}	
 	}
     
 }

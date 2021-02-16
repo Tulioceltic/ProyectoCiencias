@@ -21,9 +21,9 @@ class LeerArchivos{
 		LeerArchivos(){
 		
 		};
-	Lista <Hospital> LLenarHospitales(Lista <Hospital> Listah);
-	Lista <Personal> LLenarPersonalSalud(Lista <Personal> ListaPS);
-	Lista <Paciente> LLenarPacientes(Lista <Paciente> ListaPa);
+		Lista <Hospital> LLenarHospitales(Lista <Hospital> Listah);
+		Lista <Personal> LLenarPersonalSalud(Lista <Personal> ListaPS);
+		Lista <Paciente> LLenarPacientes(Lista <Paciente> ListaPa);
 };
 Lista <Hospital> LeerArchivos::LLenarHospitales(Lista <Hospital> Listah){
 
@@ -229,32 +229,37 @@ Lista <Paciente> LeerArchivos::LLenarPacientes(Lista <Paciente> ListaPa){
            	
            	getline(file,linea,',');
            	auxPa.NivelGravedad=linea;
-           	
-           	getline(file,linea,',');
-           	auxPa.Medicamentos=linea;
-           	if(auxPa.NivelGravedad=="Leve"){
+           	if(auxPa.Estado=="Muerto"){
+           		getline(file,linea,'.');
+           		auxPa.Medicamentos=linea;
+			}else{
            		getline(file,linea,',');
-           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-           		getline(file,linea,'.');
-           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-			}
-			if(auxPa.NivelGravedad=="Moderado"){
-				getline(file,linea,',');
-				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-				getline(file,linea,',');
-				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-           		getline(file,linea,'.');
-           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-			}
-			if(auxPa.NivelGravedad=="Severo"){
-				getline(file,linea,',');
-				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-				getline(file,linea,',');
-				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-				getline(file,linea,',');
-				auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
-           		getline(file,linea,'.');
-           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+           		auxPa.Medicamentos=linea;
+           	
+	           	if(auxPa.NivelGravedad=="Leve"){
+	           		getline(file,linea,',');
+	           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+	           		getline(file,linea,'.');
+	           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				}
+				if(auxPa.NivelGravedad=="Moderado"){
+					getline(file,linea,',');
+					auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+					getline(file,linea,',');
+					auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+	           		getline(file,linea,'.');
+	           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				}
+				if(auxPa.NivelGravedad=="Severo"){
+					getline(file,linea,',');
+					auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+					getline(file,linea,',');
+					auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+					getline(file,linea,',');
+					auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+	           		getline(file,linea,'.');
+	           		auxPa.idPersonal.insertar_final(atoi(linea.c_str()));
+				}
 			}
            	getline(file,linea);
 			ListaPa.insertar_final(auxPa);

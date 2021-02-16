@@ -36,13 +36,13 @@ class PersonalSalud{
 		PersonalSalud(){
 		};
 	void llenar();
-	void calcularEdad( int anioAct , int mesAct, int fechAct, int anioNac, int mesNac, int fechNac);
+	bool calcularEdad( int anioAct , int mesAct, int fechAct, int anioNac, int mesNac, int fechNac);
 	
 };
 void PersonalSalud::llenar(){
 	
 }
-/*void PersonalSalud::calcularEdad( int anioAct , int mesAct, int fechAct, int anioNac, int mesNac, int fechNac)
+bool PersonalSalud::calcularEdad( int anioAct , int mesAct, int fechAct, int anioNac, int mesNac, int fechNac)
 {
     int respFech , respMes;
 
@@ -64,7 +64,10 @@ void PersonalSalud::llenar(){
     else //En caso de ser mayor el mes actual que el nacimiento
         respMes = mesAct - mesNac; //Se le resta año nacimiento al actual
  
-    cout << "\nUd. tiene:\n";
-    cout << " Edad: " <<anioAct - anioNac << endl; //Muestra edad
-}*/
+    if(anioAct - anioNac>=18)
+    	return true;
+	else
+		return false;
+	
+}
 #endif /*PersonalSalud */ 

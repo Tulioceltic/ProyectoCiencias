@@ -26,6 +26,7 @@ class Hospitales{
     Hospital auxH;
 	public:
 		Hospitales(){
+			
 		};
 		
 		void LlenarHospitales();
