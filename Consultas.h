@@ -213,7 +213,7 @@ void Consultas::PacientesEdad(int edadMinima , int edadMaxima){
 			else
 			{
 				cout<<"Cuidado intensivo en "<<h<<"\n";
-				cout<<"En la localidad de "<<l<<"\n";
+				cout<<"En la localidad de "<<l<<endl;
 			}
 		}
 }
